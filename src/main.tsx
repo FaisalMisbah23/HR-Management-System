@@ -9,6 +9,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { ThemeProvider } from "@material-tailwind/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <Provider store={store}>
         <ThemeProvider>
       <App />
+      <SpeedInsights/>
       </ThemeProvider>
       </Provider>
     </Router>

@@ -17,6 +17,7 @@
     "@heroicons/react": "^2.1.5",
     "@material-tailwind/react": "^2.1.9",
     "@reduxjs/toolkit": "^2.2.5",
+    "@vercel/speed-insights": "^1.0.12",
     "apexcharts": "^3.41.0",
     "axios": "^1.7.2",
     "dayjs": "^1.11.11",
