@@ -35,8 +35,6 @@ app.use("/api/v1/admin/target", verifyJwt, targetRouter);
 
 
 
-// leavetoogle
-
 // user routes
 app.use("/api/v1/user/auth", employeeRouter);
 app.use("/api/v1/user/leave",verifyEmployee,leaveRouter);
