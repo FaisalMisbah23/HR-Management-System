@@ -108,7 +108,8 @@ export const loginHr = asyncHandler(async (req, res) => {
   // Set cookie options
   const options = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production" ? false : true,
+    secure: process.env.NODE_ENV === "production" ? true : false,
+    sameSite: 'None'
   };
 
   // Return success response with tokens and HR details
@@ -138,7 +139,8 @@ export const logoutHr = asyncHandler(async (req, res) => {
   );
   const options = {
     httpOnly: true,
-    secure: true,
+    secure: process.env.NODE_ENV === "production" ? true : false,
+    sameSite: 'None'
   };
   return res
     .status(200)
