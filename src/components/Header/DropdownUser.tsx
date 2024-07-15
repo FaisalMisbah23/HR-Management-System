@@ -10,7 +10,7 @@ const navigate = useNavigate()
   const dropdown = useRef<any>(null);
 
   // logout
-  const handleLogout = async () => {
+    const handleLogout = async () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_ADMIN_URL}/auth/logout`,{},
@@ -27,9 +27,7 @@ const navigate = useNavigate()
     }
   }; 
 
-
-
-
+  
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {

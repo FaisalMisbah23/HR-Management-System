@@ -32,8 +32,6 @@ useEffect(()=>{
   fetchData()
 },[])
 
-if(data) console.log(data);
-
 
 const handleCopied = () =>{
   setCopied(true)
@@ -83,7 +81,6 @@ useEffect(() => {
 const getPercentage = (num1,num2) => {
   return Math.ceil((num1/num2)*100) + "%"
 }
-
 
   return (
     <DefaultLayout>

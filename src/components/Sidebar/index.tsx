@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import logo from '../../images/logo/logo.png';
+import axios from 'axios'
+import {toast} from 'react-toastify'
+
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -11,6 +14,7 @@ interface SidebarProps {
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const location = useLocation();
   const { pathname } = location;
+  const navigate = useNavigate()
 
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
@@ -54,6 +58,23 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       document.querySelector('body')?.classList.remove('sidebar-expanded');
     }
   }, [sidebarExpanded]);
+
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_ADMIN_URL}/auth/logout`,{},
+        { withCredentials: true }
+      );
+      toast.success(response.data.message);
+      navigate("/admin/auth/signin")
+    } catch (error) {
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error('An error occurred. Please try again.');
+      }
+    }
+  }; 
 
   return (
     <aside
@@ -619,6 +640,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             >
                               Sign Up
                             </NavLink>
+                          </li>
+                          <li>
+                            <button
+                            onClick={handleLogout}
+                              className={'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white '}
+                            >
+                              Sign Out
+                            </button>
                           </li>
                         </ul>
                       </div>

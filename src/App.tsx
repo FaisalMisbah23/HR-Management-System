@@ -6,15 +6,10 @@ import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Calendar from './pages/Calendar';
-import Chart from './pages/Chart';
 import ECommerce from './pages/Dashboard/ECommerce';
 import FormElements from './pages/Form/FormElements';
-import FormLayout from './pages/Form/FormLayout';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
-import Tables from './pages/Tables';
-import Alerts from './pages/UiElements/Alerts';
-import Buttons from './pages/UiElements/Buttons';
 import LeaveSettings from './pages/LeaveManagement/LeaveSettings';
 import LeaveRecall from './pages/LeaveManagement/LeaveRecall';
 import LeaveHistroy from './pages/LeaveManagement/LeaveHistory';
@@ -45,6 +40,7 @@ import UserProtectedRoutes from './UserComponents/UserProtectedRoutes';
 import { fetchEmployee } from './features/currentEmpSlice';
 import UserNotifications from './pages/User/UserNotifications';
 import ErrorPage from './components/ErrorPage';
+import { useFetchCompany } from './hooks/useFetchCompany';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -56,7 +52,6 @@ function App() {
   useEffect(() => {
     dispatch(fetchCompany());
 }, [dispatch]);
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
