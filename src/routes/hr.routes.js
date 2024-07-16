@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getCurrentHr, logoutHr, registerHr, updateAvatarHr, updateProfileHr } from "../controllers/hr.controller.js";
+import { getCurrentHr, getLandingPageData, logoutHr, registerHr, updateAvatarHr, updateProfileHr } from "../controllers/hr.controller.js";
 import { loginHr } from "../controllers/hr.controller.js";
 import { verifyJwt } from "../middleware/auth.middleware.js";
 import { upload } from "../middleware/multer.middware.js";
@@ -12,6 +12,12 @@ router.route("/logout").post(verifyJwt, logoutHr);
 router.route("/updateprofile").patch(verifyJwt, updateProfileHr);
 router.route("/update/avatar").put(verifyJwt,upload.single("avatar"), updateAvatarHr);
 router.route("/").get(verifyJwt, getCurrentHr);
+
+
+// landing page stats
+router.route("/landingpage").get(getLandingPageData);
+
+
 
 
 export default router;

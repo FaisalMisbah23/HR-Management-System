@@ -2,6 +2,7 @@ import asyncHandler from "../utility/asyncHandler.js";
 import ApiError from "../utility/apiError.js";
 import ApiResponse from "../utility/apiResponse.js";
 import { HR } from "../models/hr.model.js";
+import { Company } from "../models/company.model.js";
 import { uploadOnCloudinary } from "../utility/Cloudinary.js";
 
 const generateAccessAndRefreshToken = async (id) => {
@@ -204,4 +205,36 @@ export const updateAvatarHr = asyncHandler(async (req, res) => {
 export const getCurrentHr = asyncHandler(async (req, res) => {
     return res.status(200)
         .json(new ApiResponse(200, req.hr, "HR fetch success"));
+});
+
+
+// for getting landing page stats
+export const getLandingPageData = asyncHandler(async (req, res) => {
+  try {
+    const data = await Company.aggregate([
+      {
+        '$group': {
+          '_id': null, 
+          'totalEmployees': {
+            '$sum': {
+              '$size': '$employees'
+            }
+          }, 
+          'totalHRs': {
+            '$sum': {
+              '$size': '$Admins'
+            }
+          }, 
+          'totalCompanies': {
+            '$sum': 1
+          }
+        }
+      }
+    ]);
+
+    return res.status(200).json(new ApiResponse(200, data, "Data fetched successfully"));
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json(new ApiResponse(500, null, "An error occurred while fetching data"));
+  }
 });
