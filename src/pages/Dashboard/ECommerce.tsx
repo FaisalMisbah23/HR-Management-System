@@ -11,6 +11,7 @@ import axios from 'axios';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaClipboard, FaCheck } from 'react-icons/fa';
 import TableFour from '../../components/Tables/TableFour';
+import Loader from '../../common/Loader';
 
 
 const ECommerce: React.FC = () => {
@@ -82,9 +83,9 @@ const getPercentage = (num1,num2) => {
   return Math.ceil((num1/num2)*100) + "%"
 }
 
+
   return (
     <DefaultLayout>
-
 
 <div className="bg-gradient-to-r from-[#121C3E] to-[#64748b] font-sans px-6 py-12 mb-6">
       <div className="container mx-auto flex flex-col justify-center items-center text-center">

@@ -68,22 +68,22 @@ export default function UserNavbar() {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-      <Navbar.Link active={isActive('/user/dashboard')}>
+      <Navbar.Link className={`${isActive('/user/dashboard') ? 'bg-primary' : ''}`} active={isActive('/user/dashboard')}>
           <Link to="/user/dashboard">Dashboard</Link>
         </Navbar.Link>
-        <Navbar.Link active={isActive('/user/leaveform')}>
+        <Navbar.Link className={`${isActive('/user/leaveform') ? 'bg-primary' : ''}`} active={isActive('/user/leaveform')}>
           <Link to="/user/leaveform">Leave Form</Link>
         </Navbar.Link>
-        <Navbar.Link active={isActive('/user/kpigoals')}>
+        <Navbar.Link className={`${isActive('/user/kpigoals') ? 'bg-primary' : ''}`} active={isActive('/user/kpigoals')}>
           <Link to="/user/kpigoals">KPI Goals</Link>
         </Navbar.Link>
-        <Navbar.Link active={isActive('/user/updateprofile')}>
+        <Navbar.Link className={`${isActive('/user/updateprofile') ? 'bg-primary' : ''}`} active={isActive('/user/updateprofile')}>
           <Link to="/user/updateprofile">Update Profile</Link>
         </Navbar.Link>
-        <Navbar.Link active={isActive('/user/leavehistroy')}>
+        <Navbar.Link className={`${isActive('/user/leavehistroy') ? 'bg-primary' : ''}`} active={isActive('/user/leavehistroy')}>
           <Link to="/user/leavehistroy">Leave History</Link>
         </Navbar.Link>
-        <Navbar.Link active={isActive('/user/leavehistroy')}>
+        <Navbar.Link className={`${isActive('/user/notifications') ? 'bg-primary' : ''}`} active={isActive('/user/notifications')}>
           <Link to="/user/notifications">Notifications</Link>
         </Navbar.Link>
       </Navbar.Collapse>

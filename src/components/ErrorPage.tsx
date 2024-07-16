@@ -5,7 +5,7 @@ import logo from '../images/logo/logoLight.png'
 const ErrorPage = () => {
   return (
     <section className="h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-      <div className="max-w-md mx-auto text-center items-center">
+      <div className="mx-auto text-center items-center">
         <img src={logo} alt="Logo" className="block mx-auto mb-16" />
         <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary">404</h1>
         <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">Oops, something went wrong!</p>

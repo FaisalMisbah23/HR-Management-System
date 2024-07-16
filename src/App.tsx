@@ -41,6 +41,7 @@ import { fetchEmployee } from './features/currentEmpSlice';
 import UserNotifications from './pages/User/UserNotifications';
 import ErrorPage from './components/ErrorPage';
 import { useFetchCompany } from './hooks/useFetchCompany';
+import LandingPage from './components/LandingPage';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -83,6 +84,15 @@ theme="light"
 />
 
 <Routes>
+     <Route
+          path="/"
+          element={
+            <>
+              <PageTitle title="Home | Kris - Human Resource Management System" />
+              <LandingPage/>
+            </>
+          }
+        />
      <Route
           path="/admin/"
           element={
